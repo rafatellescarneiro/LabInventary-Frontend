@@ -223,6 +223,16 @@
               :disabled="disabled"
             />
           </div>
+          <div class="col-12">
+            <label class="form-label">Imagem do Colaborador</label>
+            <collab-field
+              type="file"
+              class="form-control"
+              name="imagem"
+              v-model="collab.imagem"
+              :disabled="disabled"
+            />
+          </div>
         </div>
         <div class="modal-footer">
           <button class="btn btn-outline-info" type="button" @click="cleanForm">
@@ -270,8 +280,8 @@ export default {
         cep: "required",
         localidade: "required",
         bairro: "required",
-        logradouro: "required"
-
+        logradouro: "required",
+        imagem: "required|imagemcheck"
       },
       collab: {}, // Recebe os inputs
       address: {},

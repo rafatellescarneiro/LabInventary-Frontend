@@ -43,4 +43,18 @@ export default {
             }
             return true
         }),
+        imagemcheck: defineRule('imagemcheck', imagem => {
+            // Valida o formato da URL
+            let regex = new RegExp(/[^\s]+(.*?).(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/);
+            
+            if (imagem == null) {
+                return false
+            }
+
+            if (regex.test(imagem.name) == true) {
+                return true;
+            } else {
+                return "Imágem inválida";
+            }
+        })
 }

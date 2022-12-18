@@ -248,6 +248,17 @@
                   </span>
                 </div>
               </div>
+              <!-- Oitava linha: IMAGEM DO COLABORADOR   -->
+              <div class="col-12">
+                <label class="form-label">Imagem do Colaborador</label>
+                <collab-field
+                  type="file"
+                  class="form-control"
+                  name="imagem"
+                  v-model="collab.imagem"
+                  :disabled="disabled"
+                />
+              </div>
             </collab-form>
           </div>
           <!-- Botões SAIR e SALVAR -->
@@ -303,6 +314,7 @@ export default {
         email: "required|emailcheck",
         job: "required",
         cep: "required",
+        imagem: "required|imagemCheck"
       },
       collab: {}, // Dados do colaborador a ser editado, os dados irão popular os inputs
       cepNum: null, // Recebe o CEP o do claborador a ser editado, popula o input
