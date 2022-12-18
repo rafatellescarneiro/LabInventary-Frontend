@@ -5,7 +5,7 @@
     <div class="sb-icon text-center">
       <img
         id="logo"
-        src="../../assets/InventaryLogonobg.png"
+        src="../../assets/icons/InventaryLogonobg.png"
         alt="DevInventary Logo"
       />
     </div>

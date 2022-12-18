@@ -7,6 +7,7 @@ import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-default.css';
 import VueLoading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
+import './assets/css/base.css'
 
 const app = createApp(App);
 app.use(VueGravatar);
