@@ -31,21 +31,18 @@ export default {
             }
             return true
         }),
-        urlcheck: defineRule('urlcheck', url => {
+        imagemcheck: defineRule('imagemcheck', imagem => {
             // Valida o formato da URL
-            let regexp = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
-            if(!regexp.test(url)) {
-                return 'URL inválida.'
-            }
-            // Valida se a URL gera uma imagem de largura diferente de 0px
-            // let img = document.createElement('img')
-            // img.src = url
-            // setTimeout(() => {
-            //     if (img.width == 0) {
-            //         return 'URL falhou.'
-            //     }
-            // }, 1000)
+            let regex = new RegExp(/[^\s]+(.*?).(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/);
             
-            return true
+            if (imagem == null) {
+                return false
+            }
+
+            if (regex.test(imagem.name) == true) {
+                return true;
+            } else {
+                return "Imágem inválida";
+            }
         })
 }

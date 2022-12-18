@@ -14,13 +14,13 @@
         <!-- FORM Cadastro de Item -->
         <div class="container">
             <newitem-form 
-            @submit="saveItem" 
-            id="newitem-form" 
-            :validation-schema="schema" 
-            v-slot="{ errors }">
+                @submit="saveItem" 
+                id="newitem-form" 
+                :validation-schema="schema" 
+                v-slot="{ errors }">
                 <div class="row mb-2">
                     <div class="col-3">
-                        <label class="form-label">Código de patrimônio</label>
+                        <label class="form-label">Cód.</label>
                         <newitem-field 
                             type="text" 
                             class="form-control" 
@@ -31,41 +31,41 @@
                             v-mask="'AA####-###'"
                         />
                         <span 
-                        class="text-danger" 
-                        v-text="errors.patrimonio" 
-                        v-show="errors.patrimonio">
+                            class="text-danger" 
+                            v-text="errors.patrimonio" 
+                            v-show="errors.patrimonio">
                         </span>
                     </div>
                     <div class="col-6">
                         <label class="form-label">Título</label>
                         <newitem-field 
-                        type="text" 
-                        class="form-control" 
-                        name="titulo" 
-                        v-model="item.titulo" 
-                        :disabled="disabled"/>
+                            type="text" 
+                            class="form-control" 
+                            name="titulo" 
+                            v-model="item.titulo" 
+                            :disabled="disabled"/>
                         <span 
-                        class="text-danger" 
-                        v-text="errors.titulo" 
-                        v-show="errors.titulo">
+                            class="text-danger" 
+                            v-text="errors.titulo" 
+                            v-show="errors.titulo">
                         </span>
                     </div>
                     <div class="col-3">
                         <label class="form-label">Categoria</label>
                         <newitem-field 
-                        as="select" 
-                        class="form-select" 
-                        name="categoria" 
-                        v-model="item.categoria" 
-                        :disabled="disabled">
+                            as="select" 
+                            class="form-select" 
+                            name="categoria" 
+                            v-model="item.categoria" 
+                            :disabled="disabled">
                             <option value="Eletrônicos">Eletrônicos</option>
                             <option value="Móveis">Móvel</option>
                             <option value="Acessórios">Acessórios</option>
                         </newitem-field>
                         <span 
-                        class="text-danger" 
-                        v-text="errors.categoria" 
-                        v-show="errors.categoria">
+                            class="text-danger" 
+                            v-text="errors.categoria" 
+                            v-show="errors.categoria">
                         </span>
                     </div>
                 </div>
@@ -73,30 +73,31 @@
                     <div class="col-3">
                         <label class="form-label">Valor R$</label>
                         <newitem-field 
-                        type="text" 
-                        class="form-control" 
-                        name="valor" 
-                        v-model="item.valor" 
-                        :disabled="disabled" 
-                        placeholder="9999,99" />
+                            type="text" 
+                            class="form-control" 
+                            name="valor" 
+                            v-model="item.valor" 
+                            :disabled="disabled" 
+                            placeholder="9999,99" />
                         <span 
-                        class="text-danger" 
-                        v-text="errors.valor" 
-                        v-show="errors.valor" >
+                            class="text-danger" 
+                            v-text="errors.valor" 
+                            v-show="errors.valor" >
                         </span>
                     </div>
                     <div class="col-9">
-                        <label class="form-label">URL do produto</label>
-                        <newitem-field 
-                        type="text" 
-                        class="form-control" 
-                        name="url" 
-                        v-model="item.url" 
-                        :disabled="disabled"/>
+                        <label class="form-label">Imagem do produto</label>
+                        <newitem-field  
+                            @change="onFileSelected"
+                            type="file" 
+                            class="form-control" 
+                            name="imagem" 
+                            v-model="item.imagem" 
+                            :disabled="disabled"/>
                         <span 
-                        class="text-danger" 
-                        v-text="errors.url" 
-                        v-show="errors.url">
+                            class="text-danger" 
+                            v-text="errors.imagem" 
+                            v-show="errors.imagem">
                         </span>
                     </div>
                     <div class="loading-container" v-show="isLoading">
@@ -107,29 +108,29 @@
                     <div class="col-6">
                         <label class="form-label">Marca</label>
                         <newitem-field 
-                        type="text" 
-                        class="form-control" 
-                        name="marca" 
-                        v-model="item.marca" 
-                        :disabled="disabled"/>
+                            type="text" 
+                            class="form-control" 
+                            name="marca" 
+                            v-model="item.marca" 
+                            :disabled="disabled"/>
                         <span 
-                        class="text-danger" 
-                        v-text="errors.marca" 
-                        v-show="errors.marca">
+                            class="text-danger" 
+                            v-text="errors.marca" 
+                            v-show="errors.marca">
                         </span>
                     </div>
                     <div class="col-6">
                         <label class="form-label">Modelo</label>
                         <newitem-field 
-                        type="text" 
-                        class="form-control" 
-                        name="modelo" 
-                        v-model="item.modelo" 
-                        :disabled="disabled"/>
+                            type="text" 
+                            class="form-control" 
+                            name="modelo" 
+                            v-model="item.modelo" 
+                            :disabled="disabled"/>
                         <span 
-                        class="text-danger" 
-                        v-text="errors.modelo" 
-                        v-show="errors.modelo">
+                            class="text-danger" 
+                            v-text="errors.modelo" 
+                            v-show="errors.modelo">
                         </span>
                     </div>
                 </div>
@@ -137,12 +138,12 @@
                 <div class="col-12">
                     <label class="form-label">Descrição</label>
                     <newitem-field as="textarea" 
-                    id="text-area"
-                    class="form-control" 
-                    name="descricao" 
-                    rows="3" 
-                    v-model="item.descricao" 
-                    :disabled="disabled">
+                        id="text-area"
+                        class="form-control" 
+                        name="descricao" 
+                        rows="3" 
+                        v-model="item.descricao" 
+                        :disabled="disabled">
                     </newitem-field>
                      <span 
                         class="text-danger" 
@@ -153,14 +154,14 @@
                 </div>
                 <div class="modal-footer">
                     <button 
-                    class="btn btn-outline-info" 
-                    type="button" 
-                    @click="cleanForm">
+                        class="btn btn-outline-info" 
+                        type="button" 
+                        @click="cleanForm">
                     Limpar
                     </button>
                     <button 
-                    type="submit" 
-                    class="btn btn-info">
+                        type="submit" 
+                        class="btn btn-info">
                     Salvar
                     </button>
                 </div>
@@ -193,7 +194,7 @@ export default {
                 titulo: 'required',
                 categoria: 'required',
                 valor: 'required|pricecheck|positivocheck',
-                url: 'required|urlcheck',
+                imagem: 'required|imagemcheck',
                 marca: 'required',
                 modelo: 'required',
                 descricao: 'required'
@@ -201,7 +202,7 @@ export default {
             item: {}, // Recebe os inputs
             disabled: true, // Inputs desabilitados
             isLoading: false,
-            // confirmError: 'Código de patrimônio já existe',
+            selectedFile: null
         }
     },
     methods: {
@@ -231,7 +232,7 @@ export default {
         cleanForm() {
             const form = document.getElementById('newitem-form')
             form.reset();
-        },
+        }
     },
     computed:{
         itemsLocal(){
