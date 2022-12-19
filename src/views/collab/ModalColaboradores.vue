@@ -258,6 +258,12 @@
                   v-model="collab.imagem"
                   :disabled="disabled"
                 />
+                <span
+                    class="text-danger"
+                    v-text="errors.imagem"
+                    v-show="errors.imagem"
+                  >
+                  </span>
               </div>
             </collab-form>
           </div>
@@ -291,7 +297,7 @@
 
 <script>
 import { Form, Field } from "vee-validate";
-import rules from "../validations/validatecollab";
+import rules from "../../validations/validatecollab";
 import { mask } from "vue-the-mask";
 import { mapActions, mapMutations, mapState } from "vuex";
 rules;
@@ -314,7 +320,7 @@ export default {
         email: "required|emailcheck",
         job: "required",
         cep: "required",
-        imagem: "required|imagemCheck"
+        imagem: "required"
       },
       collab: {}, // Dados do colaborador a ser editado, os dados irão popular os inputs
       cepNum: null, // Recebe o CEP o do claborador a ser editado, popula o input
@@ -366,6 +372,7 @@ export default {
       this.$toast.info("Colaborador Atualizado com sucesso!", {
         position: "top",
       });
+      console.log(typeof this.collab.imagem)
     },
     delCollab() {
       let idCollab = this.$store.getters["collaborators/sendSelectedId"];

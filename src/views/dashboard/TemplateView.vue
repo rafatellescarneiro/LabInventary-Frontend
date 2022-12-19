@@ -10,8 +10,8 @@
 </template>
 <script>
 
-import SideBar from "../components/dashboard/SideBar"
-import NavBar from '../components/dashboard/NavBar'
+import SideBar from "../../components/dashboard/SideBar"
+import NavBar from '../../components/dashboard/NavBar'
 
 export default {
   components: {

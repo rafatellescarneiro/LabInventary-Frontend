@@ -75,9 +75,9 @@
                         <newitem-field 
                             type="text" 
                             class="form-control" 
-                            name="valor" 
-                            v-model="item.valor" 
-                            :disabled="disabled" 
+                            name="valor"
+                            v-model="item.valor"
+                            :disabled="disabled"
                             placeholder="9999,99" />
                         <span 
                             class="text-danger" 
@@ -88,7 +88,6 @@
                     <div class="col-9">
                         <label class="form-label">Imagem do produto</label>
                         <newitem-field  
-                            @change="onFileSelected"
                             type="file" 
                             class="form-control" 
                             name="imagem" 
@@ -172,7 +171,7 @@
 <script>
 
 import { Form, Field } from 'vee-validate'
-import rules from '../validations/validateitens'
+import rules from '../../validations/validateitens'
 import {mapMutations, mapState} from 'vuex'
 import { mask } from 'vue-the-mask'
 

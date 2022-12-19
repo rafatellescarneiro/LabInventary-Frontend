@@ -1,10 +1,10 @@
-import UserLogin from "../../views/UserLogin.vue";
-import CadastroUsuario from "../../views/CadastroUsuario.vue";
-import Template from "../../views/TemplateView.vue";
-import InventoryBook from "../../views/InventoryBook.vue";
-import EmprestaItem from "../../views/EmprestaItem.vue";
-import CadastroItem from "../../views/CadastroItem.vue";
-import ListaUsuarios from "../../views/ListaUsuarios.vue";
+import UserLogin from "../../views/auth/UserLogin.vue";
+import CadastroUsuario from "../../views/collab/CadastroUsuario.vue";
+import Template from "../../views/dashboard/TemplateView.vue";
+import InventoryBook from "../../views/item/InventoryBook.vue";
+import EmprestaItem from "../../views/item/EmprestaItem.vue";
+import CadastroItem from "../../views/item/CadastroItem.vue";
+import ListaUsuarios from "../../views/collab/ListaUsuarios.vue";
 import { useCookies } from "vue3-cookies";
 
 const cookies = useCookies().cookies;

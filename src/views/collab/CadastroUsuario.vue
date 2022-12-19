@@ -252,7 +252,7 @@
 </template>
 <script>
 import { Form, Field } from "vee-validate";
-import rules from "../validations/validatecollab";
+import rules from "../../validations/validatecollab";
 import { mask } from "vue-the-mask";
 import { mapState } from "vuex";
 
@@ -281,7 +281,7 @@ export default {
         localidade: "required",
         bairro: "required",
         logradouro: "required",
-        imagem: "required|imagemcheck"
+        imagem: "required"
       },
       collab: {}, // Recebe os inputs
       address: {},

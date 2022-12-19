@@ -5,15 +5,12 @@
         id="modal-btn" 
         data-bs-toggle="modal" 
         :data-bs-target="cardType == 'inventory' ? '#editItemModal' : '#collabModal'">
-        <!-- cardType define se imagem ou gravatar -->
+        <!-- cardType imagem  -->
             <img 
-            v-if="cardType == 'inventory'" 
             class="img" 
             :src="img" 
-            alt="Imagem do item">
-            <vue-gravatar 
-            class="gravatar rounded-circle" 
-            :email="img" size="100" v-else/>
+            size="100"
+            >
             <span class="first mb-3 mt-3 lh-1 fw-bold">{{ first }}</span>
             <p class="second">{{ second }}</p>
             <p class="third">{{ third }}</p>
@@ -54,12 +51,12 @@ export default {
 }
 </script>
 <style scoped>
-/* Imagem dos CARDS type=inventory */
+
 img {
-max-width: 150px;
-max-height: 100px;
+max-width: 35%;
+max-height: 35%;
 }
-/* span abaixo da img ou gravatar */
+/* span abaixo da img */
 .first {
     display: -webkit-box;
     overflow: hidden;

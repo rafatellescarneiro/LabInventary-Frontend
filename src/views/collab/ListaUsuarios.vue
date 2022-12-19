@@ -21,7 +21,7 @@
             <!-- Componente CARD tamanho médio -->
             <MediumCard
             cardType="user-list" 
-            :img="collab.email" 
+            :img="collab.imagem" 
             :first="collab.nome" 
             :second="collab.email" 
             :third="collab.telefone" 

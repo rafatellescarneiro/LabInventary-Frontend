@@ -5,7 +5,7 @@
                     <div class="logo">
                         <img 
                         id="dev-inv-img" 
-                        src="../assets/icons/InventaryLogonobg.png" 
+                        src="../../assets/icons/InventaryLogonobg.png" 
                         alt="Devinventory logo">
                     </div>
                     <h2>Login</h2>
@@ -77,13 +77,13 @@
             <div class="container text-center">
                 <img 
                 id="inventory-img" 
-                src="../assets/icons/loginimg.png" 
+                src="../../assets/icons/loginimg.png" 
                 alt="Inventário">
             </div>
             <div class="lab365">
                 <img 
                 id="lab365-img" 
-                src="../assets/icons/lab365logo.png" 
+                src="../../assets/icons/lab365logo.png" 
                 alt="LAB365">
             </div>
         </div>        
@@ -92,7 +92,7 @@
 </template>
 <script>
 import { Form, Field } from 'vee-validate'
-import rules from '../validations/validateusers'
+import rules from '../../validations/validateusers'
 import { useCookies } from 'vue3-cookies'
 import ModalNewAccount from './ModalNewAccount.vue'
 import { mapActions, mapState } from 'vuex'

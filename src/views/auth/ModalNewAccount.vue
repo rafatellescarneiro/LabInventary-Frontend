@@ -107,7 +107,7 @@
 </template>
 <script>
 import { Form, Field } from 'vee-validate'
-import rules from '../validations/validateusers'
+import rules from '../../validations/validateusers'
 import { mapActions, mapState } from 'vuex'
 
 rules

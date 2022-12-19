@@ -96,22 +96,25 @@
                   </span>
                 </div>
               </div>
-              <!-- Terceira linha: URL da imagem do item -->
+              <!-- Terceira linha: imagem do item -->
               <div class="row mb-3">
-                <div class="col-12">
-                  <label class="form-label">URL da imagem do item</label>
+                <div class="col-6">
+                  <label class="form-label">Imagem do item</label>
                   <editItem-field
-                    type="text"
+                    type="file"
                     class="form-control"
-                    name="url"
-                    v-model="item.url"
+                    name="imagem"
+                    v-model="item.imagem"
                   />
                   <span
                     class="text-danger"
-                    v-text="errors.url"
-                    v-show="errors.url"
+                    v-text="errors.imagem"
+                    v-show="errors.imagem"
                   >
                   </span>
+                </div>
+                <div class="col-6">
+                  <img :src="item.imagem">
                 </div>
               </div>
               <!-- Quarta linha: MARCA e MODELO do item -->
@@ -194,7 +197,7 @@
 
 <script>
 import { Form, Field } from "vee-validate";
-import rules from "../validations/validateitens";
+import rules from "../../validations/validateitens";
 // import { mapState } from "vuex";
 
 rules;
@@ -210,7 +213,7 @@ export default {
         titulo: "required",
         categoria: "required",
         valor: "required|pricecheck",
-        url: "required|urlcheck",
+        imagem: "required",
         marca: "required",
         modelo: "required",
       },
@@ -233,7 +236,7 @@ export default {
         titulo: this.item.titulo,
         categoria: this.item.categoria,
         valor: this.item.valor,
-        url: this.item.url,
+        imagem: this.item.imagem,
         marca: this.item.marca,
         modelo: this.item.modelo,
         descricao: this.item.descricao,
@@ -258,7 +261,7 @@ export default {
         titulo: novoItem.titulo,
         categoria: novoItem.categoria,
         valor: novoItem.valor.toFixed(2).replace(".", ","),
-        url: novoItem.url,
+        imagem: novoItem.imagem,
         marca: novoItem.marca,
         modelo: novoItem.modelo,
         descricao: novoItem.descricao,
